@@ -38,11 +38,7 @@ while true
     % Publish the results
     cmd_msg.Linear.X = v_c;
     cmd_msg.Angular.Z = r_c;
-    send(cmd_pub, cmd_msg);clear
-    
+    send(cmd_pub, cmd_msg);
     
     pause(0.1);
 end
-
-    
-

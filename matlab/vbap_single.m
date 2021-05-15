@@ -20,7 +20,7 @@ end
 usv_sub = rossubscriber('/cora/sensors/p3d',@usv_odom_callback, ...
     'DataFormat', 'struct');
 % Add another subscriber here for the rabbit!
-rabbit_sub = rossubscriber('/cora/sensors/p3d',@usv_odom_callback, ...
+rabbit_sub = rossubscriber('/rabbit',@rabbit_position_callback, ...
     'DataFormat', 'struct');
 
 % For now we'll just assign a blank message
@@ -38,10 +38,7 @@ while true
     % Publish the results
     cmd_msg.Linear.X = v_c;
     cmd_msg.Angular.Z = r_c;
-    send(cmd_pub, cmd_msg);
-    
+    send(cmd_pub, cmd_msg);clear
+        
     pause(0.1);
 end
-
-    
-
